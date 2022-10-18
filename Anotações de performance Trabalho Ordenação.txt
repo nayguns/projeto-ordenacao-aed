@@ -1,0 +1,22 @@
+Processador core i5 8250U 1.60 GHZ (4 nucleos 8 threads) 6 MB CACHE
+8 GB RAM DDR4
+SSD M2 128 GB
+
+
+---- Size array : 100.000 ----
+
+Metodo  ------  tempo (seg.)
+
+Bubble sort:    44.74s
+
+Insertion sort: 7.75s
+
+Selection Sort: 14.92s
+
+Heap Sort:      0.027s
+
+Quick Sort:     0.031s 
+
+Merge Sort:     0.012s
+
+Shell Sort:     0.016s
