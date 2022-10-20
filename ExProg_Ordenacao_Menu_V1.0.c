@@ -99,7 +99,7 @@ void menuProgramaAciona(int opcao, int *arrayCalled){
                 printf("    Ordenando... \n");
                 ordenaBubbleSort(arrayCalled, SIZEARRAY);
                 timer = clock() - timer;
-                printf("    Pronto, a ordenacao levou %fs\n\n", ((float) timer / CLOCKS_PER_SEC));
+                printf("    Pronto, a ordenacao levou %.3fs\n\n", ((float) timer / CLOCKS_PER_SEC));
             } else {
                 printf("\n    O array ainda nao foi preenchido. Tente novamente..\n\n");
             }
@@ -112,7 +112,7 @@ void menuProgramaAciona(int opcao, int *arrayCalled){
                 printf("    Ordenando... \n");
                 ordernaInsertionSort(arrayCalled, SIZEARRAY);
                 timer = clock() - timer;
-                printf("    Pronto, a ordenacao levou %fs\n\n", ((float) timer / CLOCKS_PER_SEC));
+                printf("    Pronto, a ordenacao levou %.3fs\n\n", ((float) timer / CLOCKS_PER_SEC));
             } else {
                 printf("\n    O array ainda nao foi preenchido. Tente novamente..\n\n");
             }
@@ -125,7 +125,7 @@ void menuProgramaAciona(int opcao, int *arrayCalled){
                 printf("    Ordenando... \n");
                 ordenaSelectionSort(arrayCalled, SIZEARRAY);
                 timer = clock() - timer;
-                printf("    Pronto, a ordenacao levou %fs\n\n", ((float) timer / CLOCKS_PER_SEC));
+                printf("    Pronto, a ordenacao levou %.3fs\n\n", ((float) timer / CLOCKS_PER_SEC));
             } else {
                 printf("\n    O array ainda nao foi preenchido. Tente novamente..\n\n");
             }
@@ -138,7 +138,7 @@ void menuProgramaAciona(int opcao, int *arrayCalled){
                 printf("    Ordenando... \n");
                 ordenaHeapSort(arrayCalled, SIZEARRAY);
                 timer = clock() - timer;
-                printf("    Pronto, a ordenacao levou %fs\n\n", ((float) timer / CLOCKS_PER_SEC));
+                printf("    Pronto, a ordenacao levou %.3fs\n\n", ((float) timer / CLOCKS_PER_SEC));
             } else {
                 printf("\n    O array ainda nao foi preenchido. Tente novamente..\n\n");
             }
@@ -151,7 +151,7 @@ void menuProgramaAciona(int opcao, int *arrayCalled){
                 printf("    Ordenando... \n");
                 ordenaQuickSort(arrayCalled, 0, SIZEARRAY);
                 timer = clock() - timer;
-                printf("    Pronto, a ordenacao levou %fs\n\n", ((float) timer / CLOCKS_PER_SEC));
+                printf("    Pronto, a ordenacao levou %.3fs\n\n", ((float) timer / CLOCKS_PER_SEC));
             } else {
                 printf("\n    O array ainda nao foi preenchido. Tente novamente..\n\n");
             }
@@ -164,7 +164,7 @@ void menuProgramaAciona(int opcao, int *arrayCalled){
                 printf("    Ordenando... \n");
                 ordenaMergeSort(arrayCalled,SIZEARRAY);
                 timer = clock() - timer;
-                printf("    Pronto, a ordenacao levou %fs\n\n", ((float) timer / CLOCKS_PER_SEC));
+                printf("    Pronto, a ordenacao levou %.3fs\n\n", ((float) timer / CLOCKS_PER_SEC));
             } else {
                 printf("\n    O array ainda nao foi preenchido. Tente novamente..\n\n");
             }
@@ -177,7 +177,7 @@ void menuProgramaAciona(int opcao, int *arrayCalled){
                 printf("    Ordenando... \n");
                 ordenaShellSort(arrayCalled, SIZEARRAY);
                 timer = clock() - timer;
-                printf("    Pronto, a ordenacao levou  %fs\n\n", ((float) timer / CLOCKS_PER_SEC));
+                printf("    Pronto, a ordenacao levou  %.3fs\n\n", ((float) timer / CLOCKS_PER_SEC));
             } else {
                 printf("\n    O array ainda nao foi preenchido. Tente novamente..\n\n");
             }
@@ -437,7 +437,7 @@ void ordenaShellSort(int *array, int sizeArray){
 int checarArrayVazio(int *array, int sizeArray, int limit){
     int countA;
     for(countA = 0; countA < sizeArray; countA++){
-        if (array[countA] > limit){
+        if (array[countA] > limit || array[countA] < 0){
             return -1;
         }
     }
