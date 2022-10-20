@@ -53,6 +53,10 @@ A seguir, detalhes do programa a ser implementado pelo grupo de trabalho.
 
 
 # Updates
+ - Atualização de impressão com informação de tamanho do Array;
+ - Deploy com método de validação para checagem se Array está previamente preenchido antes de entrada nas outras opções do **Menu**;
+ - Formatação nas mensagens que serão impressas em tela mediante opções;
+
 
 # @Notion
 Link de acesso com anotações e referências para desenvolvimento do programa.
