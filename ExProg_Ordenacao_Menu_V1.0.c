@@ -1,6 +1,6 @@
 /*
-    Centro Universit�rio de Goi�s - Uni-Anhanguera
-    Disciplina: Algoritmos e Programa��o Estruturada
+    Centro Universit�rio de Goias - Uni-Anhanguera
+    Disciplina: Algoritmos e Programacao Estruturada
     Professor:  Sandro Teixeira Carvalho
     Alunos(a):  Gabriel de Castro Costa         -   202113117
                 Gustavo Muller Bueno Lagares    -   202151136
@@ -8,6 +8,7 @@
                 variados metodos de ordenacao, com menu de selecao
                 e contagem de tempo de execucao de cada metodo.
 */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -30,7 +31,7 @@ void ordenaMergeSort(int *array, int sizeArr);
 void sort(int *array, int *arrayTmp, int initArr, int endArr);
 void merge(int *array, int *arrayTmp, int initArr, int midArr, int endArr);
 void ordenaShellSort(int *array, int sizeArray);
-
+int checarArrayVazio(int *array, int sizeArray, int limit);
 
 
 //Main
@@ -76,81 +77,118 @@ int menuPrograma(){
 void menuProgramaAciona(int opcao, int *arrayCalled){
 
     clock_t timer;
+    int validArray, flagArray = 0;
+    int *p;
 
     switch(opcao)
     {
+
+
         case 0: break;
 
         case 1:
             preencherArray(arrayCalled, SIZEARRAY);
-            printf("Array preenchido\n\n");
+            //flagArray = 1;
+            printf("\n    Array preenchido com %d posicoes!\n\n\n", SIZEARRAY);
         break;
 
         case 2:
-            printf("--- Metodo Bubble Sort selecionado ---\n");
-            timer = clock();
-            printf("Ordenando... ");
-            ordenaBubbleSort(arrayCalled, SIZEARRAY);
-            timer = clock() - timer;
-            printf("Pronto, a ordenacao levou %fs\n\n", ((float) timer / CLOCKS_PER_SEC));
+            if (checarArrayVazio(arrayCalled, SIZEARRAY, LIMITRAND) == 1) {
+                printf("\n    --- Metodo Bubble Sort selecionado ---\n\n");
+                timer = clock();
+                printf("    Ordenando... \n");
+                ordenaBubbleSort(arrayCalled, SIZEARRAY);
+                timer = clock() - timer;
+                printf("    Pronto, a ordenacao levou %fs\n\n", ((float) timer / CLOCKS_PER_SEC));
+            } else {
+                printf("\n    O array ainda nao foi preenchido. Tente novamente..\n\n");
+            }
         break;
 
         case 3:
-            printf("--- Metodo Insertion Sort selecionado ---\n");
-            timer = clock();
-            printf("Ordenando... ");
-            ordernaInsertionSort(arrayCalled, SIZEARRAY);
-            timer = clock() - timer;
-            printf("Pronto, a ordenacao levou %fs\n\n", ((float) timer / CLOCKS_PER_SEC));
+            if (checarArrayVazio(arrayCalled, SIZEARRAY, LIMITRAND) == 1) {
+                printf("\n    --- Metodo Insertion Sort selecionado ---\n\n");
+                timer = clock();
+                printf("    Ordenando... \n");
+                ordernaInsertionSort(arrayCalled, SIZEARRAY);
+                timer = clock() - timer;
+                printf("    Pronto, a ordenacao levou %fs\n\n", ((float) timer / CLOCKS_PER_SEC));
+            } else {
+                printf("\n    O array ainda nao foi preenchido. Tente novamente..\n\n");
+            }
         break;
 
         case 4:
-            printf("--- Metodo Selection Sort selecionado ---\n");
-            timer = clock();
-            printf("Ordenando... ");
-            ordenaSelectionSort(arrayCalled, SIZEARRAY);
-            timer = clock() - timer;
-            printf("Pronto, a ordenacao levou %fs\n\n", ((float) timer / CLOCKS_PER_SEC));
+            if (checarArrayVazio(arrayCalled, SIZEARRAY, LIMITRAND) == 1) {
+                printf("\n    --- Metodo Selection Sort selecionado ---\n\n");
+                timer = clock();
+                printf("    Ordenando... \n");
+                ordenaSelectionSort(arrayCalled, SIZEARRAY);
+                timer = clock() - timer;
+                printf("    Pronto, a ordenacao levou %fs\n\n", ((float) timer / CLOCKS_PER_SEC));
+            } else {
+                printf("\n    O array ainda nao foi preenchido. Tente novamente..\n\n");
+            }
         break;
 
         case 5:
-            printf("Metodo Heap Sort selecionado!\n\n");
-             timer = clock();
-            printf("Ordenando... ");
-            ordenaHeapSort(arrayCalled, SIZEARRAY);
-            timer = clock() - timer;
-            printf("Pronto, a ordenacao levou %fs\n\n", ((float) timer / CLOCKS_PER_SEC));
+            if (checarArrayVazio(arrayCalled, SIZEARRAY, LIMITRAND) == 1) {
+                printf("\n    --- Metodo Heap Sort selecionado! ---\n\n");
+                timer = clock();
+                printf("    Ordenando... \n");
+                ordenaHeapSort(arrayCalled, SIZEARRAY);
+                timer = clock() - timer;
+                printf("    Pronto, a ordenacao levou %fs\n\n", ((float) timer / CLOCKS_PER_SEC));
+            } else {
+                printf("\n    O array ainda nao foi preenchido. Tente novamente..\n\n");
+            }
         break;
 
         case 6:
-            printf("Metodo Quick Sort selecionado!\n\n");
-             timer = clock();
-            printf("Ordenando... ");
-            ordenaQuickSort(arrayCalled, 0, SIZEARRAY);
-            timer = clock() - timer;
-            printf("Pronto, a ordenacao levou %fs\n\n", ((float) timer / CLOCKS_PER_SEC));
+            if (checarArrayVazio(arrayCalled, SIZEARRAY, LIMITRAND) == 1) {
+                printf("\n    --- Metodo Quick Sort selecionado! ---\n\n");
+                timer = clock();
+                printf("    Ordenando... \n");
+                ordenaQuickSort(arrayCalled, 0, SIZEARRAY);
+                timer = clock() - timer;
+                printf("    Pronto, a ordenacao levou %fs\n\n", ((float) timer / CLOCKS_PER_SEC));
+            } else {
+                printf("\n    O array ainda nao foi preenchido. Tente novamente..\n\n");
+            }
         break;
 
         case 7:
-            printf("--- Metodo Merge Sort selecionado ---\n");
-            timer = clock();
-            printf("Ordenando...");
-            ordenaMergeSort(arrayCalled,SIZEARRAY);
-            timer = clock() - timer;
-            printf("Pronto, a ordenacao levou %fs\n\n", ((float) timer / CLOCKS_PER_SEC));
+            if (checarArrayVazio(arrayCalled, SIZEARRAY, LIMITRAND) == 1) {
+                printf("\n    --- Metodo Merge Sort selecionado ---\n\n");
+                timer = clock();
+                printf("    Ordenando... \n");
+                ordenaMergeSort(arrayCalled,SIZEARRAY);
+                timer = clock() - timer;
+                printf("    Pronto, a ordenacao levou %fs\n\n", ((float) timer / CLOCKS_PER_SEC));
+            } else {
+                printf("\n    O array ainda nao foi preenchido. Tente novamente..\n\n");
+            }
         break;
 
         case 8:
-            printf("--- Metodo Shell Sort selecionado! ---\n");
-            timer = clock();
-            printf("Ordenando... ");
-            ordenaShellSort(arrayCalled, SIZEARRAY);
-            timer = clock() - timer;
-            printf("Pronto, a ordenacao levou  %fs\n\n", ((float) timer / CLOCKS_PER_SEC));
+            if (checarArrayVazio(arrayCalled, SIZEARRAY, LIMITRAND) == 1) {
+                printf("\n    --- Metodo Shell Sort selecionado! ---\n\n");
+                timer = clock();
+                printf("    Ordenando... \n");
+                ordenaShellSort(arrayCalled, SIZEARRAY);
+                timer = clock() - timer;
+                printf("    Pronto, a ordenacao levou  %fs\n\n", ((float) timer / CLOCKS_PER_SEC));
+            } else {
+                printf("\n    O array ainda nao foi preenchido. Tente novamente..\n\n");
+            }
         break;
 
         case 9:
-            imprimirArray(arrayCalled, SIZEARRAY);
+            if (checarArrayVazio(arrayCalled, SIZEARRAY, LIMITRAND) == 1) {
+                imprimirArray(arrayCalled, SIZEARRAY);
+            } else {
+                printf("\n    O array ainda nao foi preenchido. Tente novamente..\n\n");
+            }
         break;
 
         default:
@@ -395,3 +433,13 @@ void ordenaShellSort(int *array, int sizeArray){
 }
 
 
+//Metodo para checar Array cheio
+int checarArrayVazio(int *array, int sizeArray, int limit){
+    int countA;
+    for(countA = 0; countA < sizeArray; countA++){
+        if (array[countA] > limit){
+            return -1;
+        }
+    }
+    return 1;
+}
