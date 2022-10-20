@@ -20,6 +20,36 @@ grupos de alunos.
 
 
 # Task
+A seguir, detalhes do programa a ser implementado pelo grupo de trabalho.
+
+- **1. Codificação com menu e métodos de busca**
+    - [x]  O programa deve permitir ao usuário escolher as opções do menu várias vezes sem que o programa seja encerrado.
+    - [x]  Cada operação do menu deve mostrar o tempo antes e depois do processamento para que o usuário possa saber o tempo que cada operação demora para ser executada.
+    - [x]  Você deve compilar seu programa com um tamanho de array grande o suficiente para que o tempo gasto em cada operação seja de alguns segundos, de forma que seja possível avaliar o tempo de cada operação.
+    - [x]  A impressão do array deve ser feita da seguinte forma: imprima somente os 100 primeiros elementos seguidos de reticências e, em seguida, imprima os 100 elementos do final da estrutura.
+    
+    ```
+     (1) Preencher o array com números aleatórios
+     (2) Ordenar o array pelo método Bubble Sort
+     (3) Ordenar o array pelo método Insertion Sort
+     (4) Ordenar o array pelo método Selection Sort
+     (5) Ordenar o array pelo método Heap Sort
+     (6) Ordenar o array pelo método Quick Sort
+     (7) Ordenar o array pelo método Merge Sort
+     (8) Ordenar o array pelo método Shell Sort
+     (9) Imprimir o array
+     Opcao: _
+    ```
+    
+    **Observação: o programa deve ser modularizado e não deve conter variáveis com escopo global.** Você deve pesquisar em livros ou na Internet e encontrar os algoritmos de cada método de ordenação.
+    
+- **2. Relatórios para apresentação**
+    - [x]  Execute o programa da questão anterior e anote em uma tabela o tempo gasto em cada uma das operações.
+    - [x]  Anote também detalhes sobre o seu computador, como memória primária, processador, cache etc.
+    - [x]  Esta tabela deverá ser mostrada durante a apresentação do trabalho.
+- **3. Bugs que surgiram no desenvolvimento 🦟**
+    - [x]  **Após ordenação no método Insertion o array está imprimindo com um caractere ‘3’ antes do array. Método de impressão do array é o mesmo para todos. (Ideal revisar o código do trecho).**
+    - [x]  Compilador gerando warning com funções do tipo “void”;
 
 
 # Updates
