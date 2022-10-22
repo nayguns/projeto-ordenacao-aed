@@ -48,10 +48,10 @@ A seguir, detalhes do programa a ser implementado pelo grupo de trabalho.
     - [x]  Anote também detalhes sobre o seu computador, como memória primária, processador, cache etc.
     - [x]  Esta tabela deverá ser mostrada durante a apresentação do trabalho.
 - **3. Bugs que surgiram no desenvolvimento 🦟**
-    - [x]  **Após ordenação no método Insertion o array está imprimindo com um caractere ‘3’ antes do array. Método de impressão do array é o mesmo para todos. (Ideal revisar o código do trecho).**
-    - [x]  Compilador gerando warning com funções do tipo “void”;
     - [ ]  Alterar tipo do array para unsigned long int, afim de conseguir pegar todo o tamanho do limite do Rand;
     - [ ]  Tentar implementar no array static para tentar usar o vetor com mais posições;
+    - [x]  **~~Após ordenação no método Insertion o array está imprimindo com um caractere ‘3’ antes do array. Método de impressão do array é o mesmo para todos. (Ideal revisar o código do trecho).~~**
+    - [x]  ~~Compilador gerando warning com funções do tipo “void”;~~
 
 
 # Updates
