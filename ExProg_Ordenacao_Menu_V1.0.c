@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define SIZEARRAY 100000
+#define SIZEARRAY 250000
 #define LIMITRAND 50000
 
 
