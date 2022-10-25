@@ -13,32 +13,31 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define SIZEARRAY 250000
-#define LIMITRAND 50000
-
+#define SIZEARRAY 3000000
+#define LIMITRAND 90000
 
 
 int menuPrograma();
-void menuProgramaAciona(int opcao, int *arrayCalled);
-void preencherArray(int *array, int sizeArray);
-void imprimirArray(int *array, int sizeArray);
-void ordenaBubbleSort(int *array, int sizeArray);
-void ordernaInsertionSort(int *array, int sizeArray);
-void ordenaSelectionSort(int *array, int sizeArray);
-void ordenaHeapSort(int *array, int N);
-void ordenaQuickSort(int *array, int inicio, int fim);
-void ordenaMergeSort(int *array, int sizeArr);
-void sort(int *array, int *arrayTmp, int initArr, int endArr);
-void merge(int *array, int *arrayTmp, int initArr, int midArr, int endArr);
-void ordenaShellSort(int *array, int sizeArray);
-int checarArrayVazio(int *array, int sizeArray, int limit);
+void menuProgramaAciona(int opcao, unsigned long int *arrayCalled);
+void preencherArray(unsigned long int *array, int sizeArray, unsigned long int limitRand);
+void imprimirArray(unsigned long int *array, int sizeArray);
+void ordenaBubbleSort(unsigned long int *array, int sizeArray);
+void ordernaInsertionSort(unsigned long int *array, int sizeArray);
+void ordenaSelectionSort(unsigned long int *array, int sizeArray);
+void ordenaHeapSort(unsigned long int *array, int N);
+void ordenaQuickSort(unsigned long int *array, int inicio, int fim);
+void ordenaMergeSort(unsigned long int *array, int sizeArr);
+void sort(unsigned long int *array, unsigned long int *arrayTmp, int initArr, int endArr);
+void merge(unsigned long int *array, unsigned long int *arrayTmp, int initArr, int midArr, int endArr);
+void ordenaShellSort(unsigned long int *array, int sizeArray);
+int checarArrayVazio(unsigned long int *array, int sizeArray, unsigned long int limit);
 
 
 //Main
 int main(void){
 
     int opcaoSelect;
-    int emptyArray[SIZEARRAY];
+    static unsigned long int emptyArray[SIZEARRAY];
 
     do {
         opcaoSelect = menuPrograma();
@@ -74,26 +73,23 @@ int menuPrograma(){
 
 
 //Menu com acoes
-void menuProgramaAciona(int opcao, int *arrayCalled){
+void menuProgramaAciona(int opcao, unsigned long int *arrayCalled){
 
     clock_t timer;
-    int validArray, flagArray = 0;
-    int *p;
+    unsigned long int limitRand = LIMITRAND;
 
     switch(opcao)
     {
 
-
         case 0: break;
 
         case 1:
-            preencherArray(arrayCalled, SIZEARRAY);
-            //flagArray = 1;
+            preencherArray(arrayCalled, SIZEARRAY, limitRand);
             printf("\n    Array preenchido com %d posicoes!\n\n\n", SIZEARRAY);
         break;
 
         case 2:
-            if (checarArrayVazio(arrayCalled, SIZEARRAY, LIMITRAND) == 1) {
+            if (checarArrayVazio(arrayCalled, SIZEARRAY, limitRand) == 1) {
                 printf("\n    --- Metodo Bubble Sort selecionado ---\n\n");
                 timer = clock();
                 printf("    Ordenando... \n");
@@ -106,7 +102,7 @@ void menuProgramaAciona(int opcao, int *arrayCalled){
         break;
 
         case 3:
-            if (checarArrayVazio(arrayCalled, SIZEARRAY, LIMITRAND) == 1) {
+            if (checarArrayVazio(arrayCalled, SIZEARRAY, limitRand) == 1) {
                 printf("\n    --- Metodo Insertion Sort selecionado ---\n\n");
                 timer = clock();
                 printf("    Ordenando... \n");
@@ -119,7 +115,7 @@ void menuProgramaAciona(int opcao, int *arrayCalled){
         break;
 
         case 4:
-            if (checarArrayVazio(arrayCalled, SIZEARRAY, LIMITRAND) == 1) {
+            if (checarArrayVazio(arrayCalled, SIZEARRAY, limitRand) == 1) {
                 printf("\n    --- Metodo Selection Sort selecionado ---\n\n");
                 timer = clock();
                 printf("    Ordenando... \n");
@@ -132,7 +128,7 @@ void menuProgramaAciona(int opcao, int *arrayCalled){
         break;
 
         case 5:
-            if (checarArrayVazio(arrayCalled, SIZEARRAY, LIMITRAND) == 1) {
+            if (checarArrayVazio(arrayCalled, SIZEARRAY, limitRand) == 1) {
                 printf("\n    --- Metodo Heap Sort selecionado! ---\n\n");
                 timer = clock();
                 printf("    Ordenando... \n");
@@ -145,7 +141,7 @@ void menuProgramaAciona(int opcao, int *arrayCalled){
         break;
 
         case 6:
-            if (checarArrayVazio(arrayCalled, SIZEARRAY, LIMITRAND) == 1) {
+            if (checarArrayVazio(arrayCalled, SIZEARRAY, limitRand) == 1) {
                 printf("\n    --- Metodo Quick Sort selecionado! ---\n\n");
                 timer = clock();
                 printf("    Ordenando... \n");
@@ -158,7 +154,7 @@ void menuProgramaAciona(int opcao, int *arrayCalled){
         break;
 
         case 7:
-            if (checarArrayVazio(arrayCalled, SIZEARRAY, LIMITRAND) == 1) {
+            if (checarArrayVazio(arrayCalled, SIZEARRAY, limitRand) == 1) {
                 printf("\n    --- Metodo Merge Sort selecionado ---\n\n");
                 timer = clock();
                 printf("    Ordenando... \n");
@@ -171,7 +167,7 @@ void menuProgramaAciona(int opcao, int *arrayCalled){
         break;
 
         case 8:
-            if (checarArrayVazio(arrayCalled, SIZEARRAY, LIMITRAND) == 1) {
+            if (checarArrayVazio(arrayCalled, SIZEARRAY, limitRand) == 1) {
                 printf("\n    --- Metodo Shell Sort selecionado! ---\n\n");
                 timer = clock();
                 printf("    Ordenando... \n");
@@ -184,7 +180,7 @@ void menuProgramaAciona(int opcao, int *arrayCalled){
         break;
 
         case 9:
-            if (checarArrayVazio(arrayCalled, SIZEARRAY, LIMITRAND) == 1) {
+            if (checarArrayVazio(arrayCalled, SIZEARRAY, limitRand) == 1) {
                 imprimirArray(arrayCalled, SIZEARRAY);
             } else {
                 printf("\n    O array ainda nao foi preenchido. Tente novamente..\n\n");
@@ -198,28 +194,29 @@ void menuProgramaAciona(int opcao, int *arrayCalled){
 
 
 //Metodo para preencher array
-void preencherArray(int *array, int sizeArray){
-    int countA;
+void preencherArray(unsigned long int *array, int sizeArray, unsigned long int limitRand){
+    unsigned long int countA;
 
     srand(time(NULL));
 
     for(countA = 0; countA < sizeArray; countA++){
-        array[countA] = 1+(rand()%LIMITRAND);
+        array[countA] = 1+((rand() * rand())%limitRand);
     }
 }
 
 
 //Metodo para imprimir o array preenchido
-void imprimirArray(int *array, int sizeArray){
-    int countB;
+void imprimirArray(unsigned long int *array, int sizeArray){
+    unsigned long int countB;
     int flagLimit = 0;
     const int VISUALLIMIT = 100;
 
     printf("\n");
 
     for(countB = 0; countB < sizeArray; countB++){
+
         if(countB < VISUALLIMIT || countB > sizeArray - (VISUALLIMIT + 1)) {
-            printf("%d ", array[countB]);
+            printf("%lu ", array[countB]);
         } else {
             if (flagLimit == 0){
                 printf(" ... ");
@@ -234,7 +231,7 @@ void imprimirArray(int *array, int sizeArray){
 
 
 //Metodo para ordenacao - BubbleSort
-void ordenaBubbleSort(int *array, int sizeArray) {
+void ordenaBubbleSort(unsigned long int *array, int sizeArray) {
     int loopOutPos, loopInPos, varAuxCh;
 
     for (loopOutPos = 0; loopOutPos < sizeArray - 1; loopOutPos++){
@@ -250,7 +247,7 @@ void ordenaBubbleSort(int *array, int sizeArray) {
 
 
 //Metodo para ordenacao - Insertion Sort
-void ordernaInsertionSort(int *array, int sizeArray){
+void ordernaInsertionSort(unsigned long int *array, int sizeArray){
 
     int loopOut, loopIn, auxVar;
 
@@ -266,7 +263,7 @@ void ordernaInsertionSort(int *array, int sizeArray){
 
 
 //Metodo para ordenacao - Selection Sort
-void ordenaSelectionSort(int *array, int sizeArray){
+void ordenaSelectionSort(unsigned long int *array, int sizeArray){
     int loopOutPos, loopInPos, minValue, auxVar;
 
     for (loopOutPos = 0; loopOutPos < (sizeArray-1); loopOutPos++) {
@@ -284,9 +281,9 @@ void ordenaSelectionSort(int *array, int sizeArray){
     }
 }
 
-void troca(int* a, int* b)
+void troca(unsigned long int* a, unsigned long int* b)
 {
-    int temp = *a;
+    unsigned long int temp = *a;
 
     *a = *b;
 
@@ -294,7 +291,7 @@ void troca(int* a, int* b)
 }
 
 
-void heapify(int *array, int N, int i)
+void heapify(unsigned long int *array, int N, int i)
 {
 
     int maior = i;
@@ -320,7 +317,7 @@ void heapify(int *array, int N, int i)
 }
 
 //Metodo para ordenacao - Heap Sort
-void ordenaHeapSort(int *array, int N){
+void ordenaHeapSort(unsigned long int *array, int N){
 
     for (int i = N / 2 - 1; i >= 0; i--)
 
@@ -337,7 +334,7 @@ void ordenaHeapSort(int *array, int N){
 
 // Metodo para ordenacao - Quick Sort
 
-void ordenaQuickSort(int *array, int inicio, int fim)
+void ordenaQuickSort(unsigned long int *array, int inicio, int fim)
 {
 	int i, j, pivo, aux;
 	i = inicio;
@@ -370,13 +367,13 @@ void ordenaQuickSort(int *array, int inicio, int fim)
 
 
 //Metodo para ordenacao - Merge Sort
-void ordenaMergeSort(int *array, int sizeArr) {
-    int *arrayTmp = malloc(sizeof(int) * sizeArr);
+void ordenaMergeSort(unsigned long int *array, int sizeArr) {
+    unsigned long int *arrayTmp = malloc(sizeof(int) * sizeArr);
     sort(array, arrayTmp, 0, sizeArr - 1);
     free(arrayTmp);
 }
 
-void sort(int *array, int *arrayTmp, int initArr, int endArr) {
+void sort(unsigned long int *array, unsigned long int *arrayTmp, int initArr, int endArr) {
     if (initArr >= endArr) return;
 
     int midArr = (initArr + endArr) / 2;
@@ -389,7 +386,7 @@ void sort(int *array, int *arrayTmp, int initArr, int endArr) {
     merge(array, arrayTmp, initArr, midArr, endArr);
 }
 
-void merge(int *array, int *arrayTmp, int initArr, int midArr, int endArr) {
+void merge(unsigned long int *array, unsigned long int *arrayTmp, int initArr, int midArr, int endArr) {
     int auxVar,
         initMainArr = initArr, initTmpArr = midArr + 1;
 
@@ -410,7 +407,7 @@ void merge(int *array, int *arrayTmp, int initArr, int midArr, int endArr) {
 
 
 //Metodo para ordenacao - Shell Sort
-void ordenaShellSort(int *array, int sizeArray){
+void ordenaShellSort(unsigned long int *array, int sizeArray){
     int loopOut, loopIn, valueVar;
     int gapVar = 1;
 
@@ -434,8 +431,8 @@ void ordenaShellSort(int *array, int sizeArray){
 
 
 //Metodo para checar Array cheio
-int checarArrayVazio(int *array, int sizeArray, int limit){
-    int countA;
+int checarArrayVazio(unsigned long int *array, int sizeArray, unsigned long int limit){
+    unsigned long int countA;
     for(countA = 0; countA < sizeArray; countA++){
         if (array[countA] > limit || array[countA] < 0){
             return -1;
